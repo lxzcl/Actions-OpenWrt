@@ -40,6 +40,7 @@ jobs:
       env:
         DEBIAN_FRONTEND: noninteractive
       run: |
+        sudo -E apt-get -qq update
         echo "=============================================================================="
         echo "Freeing up disk space on CI system"
         echo "=============================================================================="
