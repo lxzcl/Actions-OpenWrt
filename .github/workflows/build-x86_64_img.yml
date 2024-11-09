@@ -192,25 +192,28 @@ jobs:
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
         echo "status=success" >> $GITHUB_OUTPUT
 
-    - name: Upload firmware to release
-      uses: softprops/action-gh-release@v1
-      if: steps.tag.outputs.status == 'success' && !cancelled()
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        tag_name: ${{ steps.tag.outputs.release_tag }}
-        body_path: release.txt
-        files: ${{ env.FIRMWARE }}/*
 
-    - name: Upload firmware to release2
-      uses: ncipollo/release-action@v1.14.0
-      if: steps.tag.outputs.status == 'success' && !cancelled()
+    - name: Package OpenWrt Firmware
+      uses: unifreq/openwrt_packit@master
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
+        PACKAGE_SOC: qemu
+        KERNEL_VERSION_NAME: 6.1.y_6.6.y
+
+    - name: Upload OpenWrt Firmware to Release
+      uses: ncipollo/release-action@main
       with:
-        tag: ${{ steps.tag.outputs.release_tag }}
-        bodyFile: "release.txt"
-        artifacts: ${{ env.FIRMWARE }}/*
+        tag: openwrt_armvirt_v8_${{ env.PACKAGED_OUTPUTDATE }}
+        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        allowUpdates: true
+        token: ${{ secrets.GH_TOKEN }}
+        body: |
+          This is OpenWrt firmware for Armvirt 64
+          * Firmware information
+          Default IP: 192.168.1.1
+          Default username: root
+          Default password: password
+
 
 
     - name: Delete workflow runs
