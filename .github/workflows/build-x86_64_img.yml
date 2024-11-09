@@ -1,4 +1,4 @@
-name: Build X86_64 New
+name: Build qemu New
 
 on:
   repository_dispatch:
