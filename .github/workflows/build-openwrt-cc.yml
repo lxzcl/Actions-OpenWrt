@@ -17,7 +17,7 @@ on:
     inputs:
       devices:
         description: '["x86_64","newifi-d2","cr660x","psg1218a"]'
-        default: '["x86_64"]'
+        default: '["ARM64"]'
       clean:
         description: 'clean ccache'
         default: 'false'
