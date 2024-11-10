@@ -6,6 +6,7 @@ on:
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
+  PACKAGED_OUTPUTPATH：/opt/openwrt_packit/output
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ARM64.config
@@ -194,7 +195,9 @@ jobs:
 
 
     - name: Package OpenWrt Firmware
+      run: pwd
       uses: unifreq/openwrt_packit@master
+      run: pwd
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
         PACKAGE_SOC: qemu
