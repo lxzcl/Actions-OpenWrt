@@ -6,7 +6,6 @@ on:
 
 env:
   REPO_URL: https://github.com/coolsnowwolf/lede
-  PACKAGED_OUTPUTPATH：/opt/openwrt_packit/output
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
   CONFIG_FILE: ARM64.config
@@ -207,7 +206,7 @@ jobs:
       uses: ncipollo/release-action@main
       with:
         tag: openwrt_armvirt_v8_${{ env.PACKAGED_OUTPUTDATE }}
-        artifacts: ${{ env.PACKAGED_OUTPUTPATH }}/*
+        artifacts: /opt/openwrt_packit/output/*
         allowUpdates: true
         token: ${{ secrets.GITHUB_TOKEN }}
         body: |
