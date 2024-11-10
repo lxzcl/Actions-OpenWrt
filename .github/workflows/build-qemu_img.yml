@@ -200,6 +200,14 @@ jobs:
         PACKAGE_SOC: qemu
         KERNEL_VERSION_NAME: 6.1.y_6.6.y
 
+    - name: Debug PACKAGED_OUTPUTPATH
+      run: echo "PACKAGED_OUTPUTPATH is ${{ env.PACKAGED_OUTPUTPATH }}"
+      
+    - name: Check contents of output directory
+      run: |
+        ls -l /opt/openwrt_packit/output/
+
+
     - name: Upload OpenWrt Firmware to Release
       uses: ncipollo/release-action@main
       with:
