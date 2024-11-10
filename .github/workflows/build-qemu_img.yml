@@ -206,6 +206,9 @@ jobs:
     - name: Check contents of output directory
       run: |
         ls -l /opt/openwrt_packit/output/
+        
+    - name: Fix permissions for output folder
+      run: sudo chmod -R 755 /opt/openwrt_packit/output/
 
 
     - name: Upload OpenWrt Firmware to Release
