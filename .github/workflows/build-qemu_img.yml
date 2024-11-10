@@ -196,7 +196,6 @@ jobs:
     - name: Package OpenWrt Firmware
       run: pwd
       uses: unifreq/openwrt_packit@master
-      run: pwd
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
         PACKAGE_SOC: qemu
