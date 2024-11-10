@@ -194,7 +194,6 @@ jobs:
 
 
     - name: Package OpenWrt Firmware
-      run: pwd
       uses: unifreq/openwrt_packit@master
       env:
         OPENWRT_ARMVIRT: openwrt/bin/targets/*/*/*rootfs.tar.gz
