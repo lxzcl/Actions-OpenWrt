@@ -9,6 +9,9 @@
 # https://github.com/liwenjie119/Actions-OpenWrt
 # 硬盘释放来自于https://github.com/dzlea/ActionsBuildOpenWRT
 
+#  schedule:
+#    - cron: 0 8 * * 3,5
+#
 name: Build OpenWrt-cc
 
 on:
@@ -22,8 +25,7 @@ on:
         description: 'clean ccache'
         default: 'false'
         
-  schedule:
-    - cron: 0 8 * * 3,5
+
   watch:
     types: started
   push:
