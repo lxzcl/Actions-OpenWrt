@@ -42,6 +42,8 @@ spec:
             steps {
                 container('builder') {
                     sh '''
+                        export DEBIAN_FRONTEND=noninteractive
+                        export TZ=Asia/Shanghai
                         apt-get update -y
                         apt-get install -y ack antlr3 asciidoc autoconf automake autopoint binutils bison build-essential \
                         bzip2 ccache clang cmake cpio curl device-tree-compiler flex gawk gcc-multilib g++-multilib gettext \
