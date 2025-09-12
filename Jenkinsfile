@@ -57,7 +57,7 @@ spec:
 
         stage('Checkout Config Repo') {
             steps {
-                git branch: 'master',
+                git branch: 'main',
                     url: 'https://github.com/lxzcl/Actions-OpenWrt.git'
             }
         }
