@@ -35,9 +35,7 @@ spec:
 
     triggers {
         // 每 5 分钟 poll 一次 SCM
-        pollSCM('H/5 * * * *')
-        // GitHub webhook 触发
-        githubPush()
+        pollSCM('*/5 * * * *')
     }
 
     stages {
