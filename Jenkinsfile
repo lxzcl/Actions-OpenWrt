@@ -30,6 +30,7 @@ spec:
         FEEDS_CONF = "feeds.conf.default"
         CONFIG_FILE = "E20c.config"
         TZ = "Asia/Shanghai"
+        FORCE_UNSAFE_CONFIGURE = "1"
     }
 
     triggers {
