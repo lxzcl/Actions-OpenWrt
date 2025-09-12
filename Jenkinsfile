@@ -28,7 +28,7 @@ spec:
         REPO_URL = "https://github.com/coolsnowwolf/lede"
         REPO_BRANCH = "master"
         FEEDS_CONF = "feeds.conf.default"
-        CONFIG_FILE = "E20c.config"
+        CONFIG_FILE = "x86_64.config"
         TZ = "Asia/Shanghai"
         FORCE_UNSAFE_CONFIGURE = "1"
     }
