@@ -22,9 +22,10 @@ spec:
 '''
             defaultContainer 'builder'
         }
-    }
-    triggers{
-        pollSCM '*/5 * * * *'
+        triggers{
+            pollSCM '*/5 * * * *'
+        }
+
     }
 
     environment {
