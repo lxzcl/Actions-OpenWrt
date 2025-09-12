@@ -23,6 +23,9 @@ spec:
             defaultContainer 'builder'
         }
     }
+    triggers{
+        pollSCM '*/5 * * * *'
+    }
 
     environment {
         REPO_URL = "https://github.com/coolsnowwolf/lede"
